@@ -1,0 +1,9 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: credibleClient
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.2.108:8848

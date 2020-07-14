@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="error" monitorInterval="60">
+    <Properties>
+        <Property name="P_Layout" value="[%d{yyyy-MM-dd HH:mm:ss,SSS}][%c][%-5p][%traceId]%m%n"/>
+        <Property name="TriggerSize" value="100MB"/>
+        <Property name="imFlush" value="true"/>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${P_Layout}"/>
+        </Console>
+        <RollingRandomAccessFile name="thirdpartylog" immediateFlush="${imFlush}"
+                                 fileName="/home/credible/log/server.log"
+                                 filePattern="/home/credible/log/server.log_%d{yyyyMMddHHmmss}">
+            <PatternLayout pattern="${P_Layout}"/>
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="${TriggerSize}"/>
+                <CronTriggeringPolicy schedule="0 0 0 * * ?" evaluateOnStartup="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="locallog" immediateFlush="true"
+                                 fileName="/home/credible/log/server.log"
+                                 filePattern="/home/credible/log/server.log_%d{yyyyMMddHHmmssSSS}">
+            <PatternLayout pattern="${P_Layout}"/>
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+                <CronTriggeringPolicy schedule="0 0 0 * * ?"/>
+                <SizeBasedTriggeringPolicy size="${TriggerSize}"/>
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="locallog" level="info" includeLocation="true" additivity="false">
+            <AppenderRef ref="locallog"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="cn.edu.bjut" level="info" includeLocation="true" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Root level="error" includeLocation="true">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="thirdpartylog"/>
+        </Root>
+
+    </Loggers>
+</Configuration>
