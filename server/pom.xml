@@ -21,6 +21,9 @@
         <skipTests>true</skipTests>
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
         <spring-cloud-alibaba.version>0.2.1.RELEASE</spring-cloud-alibaba.version>
+        <nacos-client.version>1.1.0</nacos-client.version>
+        <nacos-discovery.version>0.2.1</nacos-discovery.version>
+        <fastjson.version>1.2.72</fastjson.version>
     </properties>
 
     <dependencies>
@@ -36,13 +39,13 @@
         <dependency>
             <groupId>com.alibaba.nacos</groupId>
             <artifactId>nacos-client</artifactId>
-            <version>1.1.0</version>
+            <version>${nacos-client.version}</version>
         </dependency>
         <!--服务消费者-->
         <dependency>
             <groupId>com.alibaba.boot</groupId>
             <artifactId>nacos-discovery-spring-boot-starter</artifactId>
-            <version>0.2.1</version>
+            <version>${nacos-discovery.version}</version>
         </dependency>
         <!-- 服务注册-->
         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-alibaba-nacos-discovery -->
@@ -69,7 +72,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.72</version>
+            <version>${fastjson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

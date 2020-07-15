@@ -6,4 +6,4 @@ spring:
       discovery:
         server-addr: 192.168.2.108:8848
 server:
-  port: 80
+  port: 8080

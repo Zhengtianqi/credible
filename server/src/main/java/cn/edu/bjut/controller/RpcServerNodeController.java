@@ -12,11 +12,11 @@ public class RpcServerNodeController {
 
     @GetMapping(value = "/rpcGetRequest")
     public NormalResponse rpcGetRequest() {
-        return NormalResponse.create().message("测试RPC GET调用").state(200);
+        return NormalResponse.create().message("请求服务节点，RPC GET调用").state(200);
     }
 
     @PostMapping(value = "/rpcPostRequest")
     public NormalResponse rpcPostRequest() {
-        return NormalResponse.create().message("测试RPC POST调用").state(200);
+        return NormalResponse.create().message("请求服务节点，RPC POST调用").state(200);
     }
 }
