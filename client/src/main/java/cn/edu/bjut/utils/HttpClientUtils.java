@@ -244,7 +244,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * Description: 封装请求头
+     * 封装请求头
      *
      * @param params     参数
      * @param httpMethod 请求方式
@@ -261,7 +261,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * Description: 封装请求参数
+     * 封装请求参数
      *
      * @param params     返回结果
      * @param httpMethod 请求方式
@@ -283,7 +283,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * Description: 获得响应结果
+     * 获得响应结果
      *
      * @param httpResponse 响应
      * @param httpClient   http客户端
@@ -308,7 +308,7 @@ public class HttpClientUtils {
     }
 
     /**
-     * Description: 释放资源
+     * 释放资源
      *
      * @param httpResponse 响应
      * @param httpClient   http客户端
