@@ -3,7 +3,7 @@ package cn.edu.bjut.constant;
 /**
  * 应用收集指标常量类
  *
- * @author xiaokai@gooagoo.com
+ * @author zhengtianqi
  * @version 2019-4-1
  */
 public class MetricsConstant {
