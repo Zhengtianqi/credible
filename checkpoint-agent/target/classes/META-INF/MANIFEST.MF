@@ -1,1 +1,4 @@
-Premain-Class: cn.edu.bjut.agent.StartUp
+Manifest-Version: 1.0
+Premain-Class: cn.edu.bjut.agent.MyAgent
+Can-Redefine-Classes: true
+

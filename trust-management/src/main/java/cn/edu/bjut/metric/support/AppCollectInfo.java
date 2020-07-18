@@ -73,16 +73,13 @@ public class AppCollectInfo implements Serializable {
     }
 
     /**
-     *
      * @return 平均吞吐量（1分钟）
-
-    public long getAvgThroughput() {
-    return 0L;
-    }
      */
+    public long getAvgThroughput() {
+        return 0L;
+    }
 
     /**
-     *
      * 请使用以下公式来确定 Tresponse 的值，即峰值负载时的响应时间 （以秒为单位）：
      * Tresponse = n/r - Tthink
      * n 是并发用户数
@@ -91,12 +88,11 @@ public class AppCollectInfo implements Serializable {
      * 要获得准确的响应时间结果，应始终在等式中使用延迟时间。
      *
      * @return 平均响应时间
-     *
-
-    public long getAvgResponseTime() {
-    return 0L;
-    }
      */
+    public long getAvgResponseTime() {
+        return 0L;
+    }
+
 
     /**
      * @return 当前已经使用的内存量（M）
