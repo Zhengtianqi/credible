@@ -1,6 +1,8 @@
 cn\edu\bjut\entity\GcMetric.class
 cn\edu\bjut\monitor\JvmStack.class
 cn\edu\bjut\entity\MemoryMetric.class
+cn\edu\bjut\agent\MyAgent$1.class
+cn\edu\bjut\monitor\MethodCostTime.class
 cn\edu\bjut\utils\IdMakerUtil.class
 cn\edu\bjut\test\AgentTest.class
 cn\edu\bjut\constant\Constants.class

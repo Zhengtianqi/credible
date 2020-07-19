@@ -5,3 +5,4 @@ D:\git\credible\checkpoint-agent\src\main\java\cn\edu\bjut\monitor\JvmStack.java
 D:\git\credible\checkpoint-agent\src\main\java\cn\edu\bjut\entity\MemoryMetric.java
 D:\git\credible\checkpoint-agent\src\main\java\cn\edu\bjut\entity\GcMetric.java
 D:\git\credible\checkpoint-agent\src\main\java\cn\edu\bjut\test\AgentTest.java
+D:\git\credible\checkpoint-agent\src\main\java\cn\edu\bjut\monitor\MethodCostTime.java
