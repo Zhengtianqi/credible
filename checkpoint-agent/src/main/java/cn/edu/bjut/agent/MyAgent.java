@@ -4,6 +4,7 @@ import cn.edu.bjut.monitor.JvmStack;
 import cn.edu.bjut.monitor.MethodCostTime;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import net.bytebuddy.agent.builder.AgentBuilder;
+import net.bytebuddy.asm.Advice;
 import net.bytebuddy.description.type.TypeDescription;
 import net.bytebuddy.dynamic.DynamicType;
 import net.bytebuddy.implementation.MethodDelegation;
@@ -22,16 +23,25 @@ public class MyAgent {
      * JVM 首先尝试在代理类上调用以下方法
      */
     public static void premain(String agentArgs, Instrumentation inst) {
-        System.out.println("this is my agent：" + agentArgs);
+        System.out.println("agent start：" + agentArgs);
+
+        AgentBuilder agentBuilder = new AgentBuilder.Default();
 
         AgentBuilder.Transformer transformer = (builder, typeDescription, classLoader, javaModule) -> {
             return builder
                     // 拦截任意方法
                     .method(ElementMatchers.any())
                     // 委托
-                    .intercept(MethodDelegation.to(MethodCostTime.class));
+                    .intercept(MethodDelegation.to(MethodCostTime.class))
+                    .visit(Advice
+                            .to(MyAdvice.class)
+                            .on(ElementMatchers.isMethod()
+                                    .and(ElementMatchers.any())
+                                    .and(ElementMatchers.not(ElementMatchers.nameStartsWith("main")))));
         };
-
+        agentBuilder
+                // 指定需要拦截的类
+                .type(ElementMatchers.nameStartsWith("cn.edu.bjut")).transform(transformer).asDecorator();
         AgentBuilder.Listener listener = new AgentBuilder.Listener() {
             @Override
             public void onDiscovery(String s, ClassLoader classLoader, JavaModule javaModule, boolean b) {
@@ -40,7 +50,7 @@ public class MyAgent {
 
             @Override
             public void onTransformation(TypeDescription typeDescription, ClassLoader classLoader, JavaModule javaModule, boolean b, DynamicType dynamicType) {
-
+                System.out.println("onTransformation：" + typeDescription);
             }
 
             @Override
@@ -59,12 +69,7 @@ public class MyAgent {
             }
 
         };
-
-        new AgentBuilder
-                .Default()
-                // 指定需要拦截的类
-                .type(ElementMatchers.nameStartsWith("cn.edu.bjut"))
-                .transform(transformer)
+        agentBuilder
                 .with(listener)
                 .installOn(inst);
 
@@ -78,7 +83,6 @@ public class MyAgent {
             JvmStack.printMemoryMetric();
             JvmStack.printGcMetric();
         }, 0L, 1000L, TimeUnit.MILLISECONDS);
-
     }
 
     /**
