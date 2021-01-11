@@ -24,7 +24,7 @@ public class GcMetric implements Serializable {
     /**
      * 已收集总数
      */
-    private long garbageCount;
+    private long garbageCount;  
     /**
      * 大概的累计收集时间,毫秒
      */

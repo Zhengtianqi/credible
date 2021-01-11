@@ -13,7 +13,7 @@ public class UUIDHexGenerator {
 
     public static String guid() {
         UUID uuid = UUID.randomUUID();
-        return uuid.toString().replace("-", "");
+        return uuid.toString();
     }
 
 }

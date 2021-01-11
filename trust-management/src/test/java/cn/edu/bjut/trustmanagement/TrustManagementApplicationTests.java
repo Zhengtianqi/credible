@@ -5,7 +5,7 @@ import cn.edu.bjut.metric.support.JvmCollectInfo;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class TrustManagementApplicationTests {
 
     @Test
