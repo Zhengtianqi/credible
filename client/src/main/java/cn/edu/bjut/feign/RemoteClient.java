@@ -6,6 +6,7 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 /**
@@ -28,6 +29,6 @@ public interface RemoteClient {
      * @return 返回值
      */
     @LoadBalanced
-    @GetMapping(value = "/rpc/rpcPostRequest")
+    @PostMapping(value = "/rpc/rpcPostRequest")
     ResponseEntity<String> testRpcPostRequest();
 }
