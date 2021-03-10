@@ -9,7 +9,6 @@
         <module name="client" />
         <module name="server" />
         <module name="checkpoint-agent" />
-        <module name="checkpoint-data-analysis" />
         <module name="trust-management" />
       </profile>
     </annotationProcessing>
@@ -17,7 +16,6 @@
       <module name="checkpoint-agent" target="8" />
       <module name="checkpoint-agent (1)" target="8" />
       <module name="checkpoint-agent (2)" target="8" />
-      <module name="checkpoint-data-analysis" target="1.8" />
       <module name="client" target="1.8" />
       <module name="server" target="1.8" />
       <module name="trust-management" target="1.8" />
@@ -25,7 +23,6 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="checkpoint-data-analysis" options="-parameters" />
       <module name="client" options="-parameters" />
       <module name="server" options="-parameters" />
       <module name="trust-management" options="-parameters" />
